@@ -1,0 +1,41 @@
+/* rules={[
+    { required: true, message: "bat buoc nhap" },
+    {
+      validator: (_, value) => {
+        if (!value || dayjs(value).isAfter(dayjs(), "day")) {
+          return Promise.resolve();
+        }
+        return Promise.resolve("han phai la ngay tuowng lai");
+      },
+    },
+  ]} */
+
+/* initialValues={{ ...data, dueDate: dayjs(data.dueDate) } */
+
+/* const { data, isLoading } = useQuery({
+  queryKey: ["tasks", id],
+  queryFn: async () =>
+    (await axios.get(`http://localhost:3000/tasks/${id}`)).data,
+});
+console.log(data);
+
+const { mutate } = useMutation({
+  mutationFn: async (data) =>
+    await axios.put(`http://localhost:3000/tasks/${id}`, data),
+
+  onSuccess: () => {
+    message.success("them san pham thanh cong");
+    queryClient.invalidateQueries({ queryKey: ["tasks"] });
+    nav("/");
+  },
+});
+const onFinish = (values) => {
+  mutate({
+    ...values,
+    dueDate: dayjs(values.dueDate).format("YYYY-MM-DD"),
+    status: values.status || false,
+  }); */
+
+/* 
+  const onFinish = (values: any) => {
+    mutate(values); */
